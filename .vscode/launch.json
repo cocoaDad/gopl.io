@@ -4,18 +4,24 @@
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-  
     {
       "name": "Launch file",
       "type": "go",
       "request": "launch",
       "mode": "auto",
       "program": "${file}",
-      "env": {
-        "GOROOT": "/usr/lib/go",
-        "GOPATH": "/home/dyf/go:/home/dyf/GoProjects/gopl",
+      "linux": {
+        "env": {
+          "GOROOT": "/usr/lib/go",
+          "GOPATH": "/home/dyf/go:/home/dyf/GoProjects/gopl"
+        }
       },
-      
+      "windows": {
+        "env": {
+          "GOROOT": "C:\\Softwares\\Go",
+          "GOPATH": "C:\\Users\\dyfco\\go"
+        }
+      },
       "args": []
     },
     {
@@ -24,11 +30,18 @@
       "request": "launch",
       "mode": "auto",
       "program": "${fileDirname}",
-      "env": {
-        "GOROOT": "/usr/lib/go",
-        "GOPATH": "/home/dyf/go:/home/dyf/GoProjects/gopl",
+      "linux": {
+        "env": {
+          "GOROOT": "/usr/lib/go",
+          "GOPATH": "/home/dyf/go"
+        }
+      },
+      "windows": {
+        "env": {
+          "GOROOT": "C:\\Softwares\\Go",
+          "GOPATH": "C:\\Users\\dyfco\\go"
+        }
       }
-      
     }
   ]
 }
