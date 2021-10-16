@@ -8,6 +8,7 @@
 package main
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/png"
@@ -31,7 +32,15 @@ func main() {
 			img.Set(px, py, mandelbrot(z))
 		}
 	}
-	png.Encode(os.Stdout, img) // NOTE: ignoring errors
+	filePath, _ := os.Getwd()
+	filePath += "\\ch3\\mandelbrot\\mandelbrot.png"
+	file, err := os.OpenFile(filePath, os.O_CREATE|os.O_RDWR, 0666)
+	if err != nil {
+		fmt.Println("file create or open filed", err)
+		os.Exit(1)
+	}
+	png.Encode(file, img) // NOTE: ignoring errors
+
 }
 
 func mandelbrot(z complex128) color.Color {

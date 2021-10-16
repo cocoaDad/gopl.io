@@ -25,6 +25,12 @@ func main() {
 	fmt.Println(f()) // "4"
 	fmt.Println(f()) // "9"
 	fmt.Println(f()) // "16"
+
+	g := squares()
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
 }
 
 //!-

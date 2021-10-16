@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"gopl.io/ch12/methods"
+	"gopl/src/ch12/methods"
 )
 
 func ExamplePrintDuration() {

@@ -15,7 +15,7 @@ import (
 	"log"
 	"os"
 
-	"gopl.io/ch5/links"
+	"gopl/src/ch5/links"
 )
 
 func crawl(url string) []string {

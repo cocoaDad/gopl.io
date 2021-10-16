@@ -14,11 +14,14 @@ import (
 
 func main() {
 	s, sep := "", ""
+	count := 0
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
+		count++
 	}
 	fmt.Println(s)
+	fmt.Println(count)
 }
 
 //!-

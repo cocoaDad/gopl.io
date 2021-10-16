@@ -22,6 +22,7 @@ func Image(src image.Image) image.Image {
 	// Compute thumbnail size, preserving aspect ratio.
 	xs := src.Bounds().Size().X
 	ys := src.Bounds().Size().Y
+
 	width, height := 128, 128
 	if aspect := float64(xs) / float64(ys); aspect < 1.0 {
 		width = int(128 * aspect) // portrait

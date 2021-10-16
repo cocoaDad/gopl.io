@@ -34,6 +34,7 @@ func Extract(url string) ([]string, error) {
 
 	var links []string
 	visitNode := func(n *html.Node) {
+		// 观察当前的n对应的是否是<a href="">冰提取href的内容
 		if n.Type == html.ElementNode && n.Data == "a" {
 			for _, a := range n.Attr {
 				if a.Key != "href" {
@@ -43,6 +44,7 @@ func Extract(url string) ([]string, error) {
 				if err != nil {
 					continue // ignore bad URLs
 				}
+				fmt.Println(link)
 				links = append(links, link.String())
 			}
 		}
@@ -65,3 +67,11 @@ func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
 		post(n)
 	}
 }
+
+//func main () {
+//	str, err := Extract("https://golang.google.cn")
+//	if err!=nil {
+//		log.Fatalln(err)
+//	}
+//	fmt.Println(str)
+//}

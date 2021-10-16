@@ -15,7 +15,7 @@ import (
 )
 
 //!+parseAndCheck
-import "gopl.io/ch7/eval"
+import "gopl/src/ch7/eval"
 
 //!-parseAndCheck
 

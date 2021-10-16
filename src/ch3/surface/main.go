@@ -10,6 +10,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
 )
 
 const (
@@ -24,20 +25,35 @@ const (
 var sin30, cos30 = math.Sin(angle), math.Cos(angle) // sin(30°), cos(30°)
 
 func main() {
-	fmt.Printf("<svg xmlns='http://www.w3.org/2000/svg' "+
-		"style='stroke: grey; fill: white; stroke-width: 0.7' "+
-		"width='%d' height='%d'>", width, height)
+	filePath, err := os.Getwd()
+	filePath += "\\ch3\\surface\\surface.xml"
+	file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_CREATE, 0666)
+	if err != nil {
+		fmt.Println("file open filed", err)
+		os.Exit(1)
+	}
+	_, err = fmt.Fprintf(file,		"<svg xmlns='http://www.w3.org/2000/svg' "+
+			"style='stroke: grey; fill: white; stroke-width: 0.7' "+
+			"width='%d' height='%d'>", width, height)
+
+	if err != nil {
+		fmt.Println("file write filed", err)
+		os.Exit(1)
+	}
+
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
 			ax, ay := corner(i+1, j)
 			bx, by := corner(i, j)
 			cx, cy := corner(i, j+1)
 			dx, dy := corner(i+1, j+1)
-			fmt.Printf("<polygon points='%g,%g %g,%g %g,%g %g,%g'/>\n",
+			_, err = fmt.Fprintf(file, "<polygon points='%g,%g %g,%g %g,%g %g,%g'/>\n",
 				ax, ay, bx, by, cx, cy, dx, dy)
 		}
 	}
-	fmt.Println("</svg>")
+	fmt.Fprintln(file, "</svg>")
+	fmt.Println("file write successfully")
+	defer file.Close()
 }
 
 func corner(i, j int) (float64, float64) {

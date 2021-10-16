@@ -24,6 +24,9 @@ func hasEdge(from, to string) bool {
 	return graph[from][to]
 }
 
+func printEdge(from string) {
+	fmt.Printf("%T\t%v\n", graph[from], graph[from])
+}
 //!-
 
 func main() {
@@ -40,4 +43,6 @@ func main() {
 	fmt.Println(hasEdge("x", "d"))
 	fmt.Println(hasEdge("d", "x"))
 
+	printEdge("x")
+	printEdge("c")
 }

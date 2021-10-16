@@ -11,20 +11,25 @@ import "fmt"
 
 //!+
 func counter(out chan<- int) {
+	fmt.Println("counter on")
 	for x := 0; x < 100; x++ {
 		out <- x
+		fmt.Println("c", x)
 	}
 	close(out)
 }
 
 func squarer(out chan<- int, in <-chan int) {
+	fmt.Println("squarer on")
 	for v := range in {
 		out <- v * v
+		fmt.Println("s", out)
 	}
 	close(out)
 }
 
 func printer(in <-chan int) {
+	fmt.Println("printer on")
 	for v := range in {
 		fmt.Println(v)
 	}
