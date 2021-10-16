@@ -54,7 +54,7 @@ func main() {
 		case <-abort:
 			fmt.Println("Launch aborted!")
 			tick.Stop()
-			close(B2A)
+			close(B2A) // close
 			close(A2B)
 			return
 		}
