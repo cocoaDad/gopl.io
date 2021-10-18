@@ -11,7 +11,7 @@ package word
 // (Our first attempt.)
 func IsPalindrome(s string) bool {
 	for i := range s {
-		if s[i] != s[len(s)-1-i] {
+		if s[i] != s[len(s)-i-1] {
 			return false
 		}
 	}
