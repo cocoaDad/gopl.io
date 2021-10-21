@@ -12,7 +12,7 @@
       "program": "${file}",
       "linux": {
         "env": {
-          "GOROOT": "/usr/lib/go",
+          "GOROOT": "/usr/local/go",
           "GOPATH": "/home/dyf/go:/home/dyf/GoProjects/gopl"
         }
       },
@@ -32,7 +32,7 @@
       "program": "${fileDirname}",
       "linux": {
         "env": {
-          "GOROOT": "/usr/lib/go",
+          "GOROOT": "/usr/local/go",
           "GOPATH": "/home/dyf/go"
         }
       },
