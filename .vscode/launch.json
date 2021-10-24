@@ -5,6 +5,26 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch file",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${file}",
+      "linux": {
+        "env": {
+          "GOROOT": "/usr/local/go",
+          "GOPATH": "/home/dyf/go:/home/dyf/GoProjects/gopl"
+        }
+      },
+      "windows": {
+        "env": {
+          "GOROOT": "C:\\Softwares\\Go",
+          "GOPATH": "C:\\Users\\dyfco\\go"
+        }
+      },
+      "args": ["http://localhost:12345/search"]
+    },
+    {
       "name": "Launch go file",
       "type": "go",
       "request": "launch",
